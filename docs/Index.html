@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="files/css/global/Global_style.css">
+    <link rel="stylesheet" href="files/css/pages/Index_style.css">
+    <title>Document</title>
+
+    <!-- Fuente Audiowide usada bajo SIL Open Font License v1.1 -->
+    <!-- Copyright (c) 2012, Brian J. Bonislawsky DBA Astigmatic (AOETI) -->
+    <!-- https://openfontlicense.org -->
+    <!-- La fuente puede ser usada, modificada y distribuida libremente siempre que no se venda por sí sola y se mantenga esta licencia. -->
+
+</head>
+<body>
+    <video id="initial_animation" autoplay muted playsinline>
+        <source src="assets/vid/animacion_inicial_portafoleo.mp4" type="">
+    </video>
+    <main>
+        <section class="presentation">
+            <canvas class="back_ground_game" id="back_game">
+
+            </canvas>
+                <img src="assets/img/ships/ship-1.svg" class="ship" id="ship_1" alt="Ship one">
+                <img src="assets/img/ships/ship-2.svg" class="ship" id="ship_2" alt="Ship two">
+                <img src="assets/img/ships/ship-3.svg" class="ship" id="ship_3" alt="Ship three">
+                <img src="assets/img/ships/ship-4.svg" class="ship" id="ship_4" alt="Ship four">
+
+            <div class="content_my_name">
+                <h1 id="my_name"></h1>
+                <span class="cursor"></span>
+            </div>
+        </section>
+        
+    </main>
+    <script type="module" src="files/js/pages/index_game_script.js"></script>
+    <script src="files/js/pages/Index_script.js"></script>
+</body>
+</html>
