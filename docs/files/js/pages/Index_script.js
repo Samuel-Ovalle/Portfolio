@@ -4,30 +4,41 @@ const wait = (t) => new Promise(resolve => setTimeout(resolve, t));
 
 const start_logic = ()=>{
     initial_animation.remove();
-    document.querySelector("main").style.display = "block";
+    document.querySelector("main").style.visibility = "visible";
+    document.querySelector("main").style.opacity = "1";
     // document.querySelector("body").style.overflowY = "visible";
+    game();
 
-
-    async function add_text(text, element, waiting_time) {
+    async function add_text(element, texts){
         const target = document.querySelector(`#${element}`);
-        let current = "";
 
-        for (let i = 0; i < text.length; i++) {
-            current += text[i];
-            target.innerHTML = `${current}`;
-            await wait(waiting_time);
+        while (true) {
+            for (const text of texts) {
+                for (let i = 0; i <= text.length; i++) {
+                    target.textContent = text.slice(0, i);
+                    await wait(200);
+                }
+
+                await wait(700);
+
+                for (let i = text.length; i >= 0; i--) {
+                    target.textContent = text.slice(0, i);
+                    await wait(100);
+                }
+
+                await wait(700);
+            }
         }
-        const cursor = document.querySelector(".cursor");
-        setInterval(() => {
-            cursor.style.visibility = (cursor.style.visibility === "hidden") ? "visible" : "hidden";
-        }, 800);
     }
     
-    let texts = ["Samuel Ovalle is"];
-    add_text(texts[0], "my_name", 200);
+    const cursor = document.querySelector(".cursor");
+    setInterval(() => {cursor.style.visibility = (cursor.style.visibility === "hidden") ? "visible" : "hidden";}, 800);
     
-    game();
-    // game_canvas();
+    setTimeout(() => {
+        
+        let texts = ["Samuel Ovalle is", "full-stack developer"];
+        add_text("my_name", texts)
+    }, 3000);
 }
 
 async function game_canvas (){
