@@ -41,7 +41,7 @@ body main .presentation .ship{
     position: absolute;
     object-fit: scale-down;
     transition: top 0.3s ease, left 0.3s ease, transform 0.3s ease;
-    visibility: hidden;
+    /* visibility: hidden; */
 }
 body main .presentation #ship_1{
     filter: drop-shadow(0vh 0vh 7px #00f);
