@@ -12,16 +12,28 @@
     <!-- https://openfontlicense.org -->
     <!-- La fuente puede ser usada, modificada y distribuida libremente siempre que no se venda por sí sola y se mantenga esta licencia. -->
 
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@v0.178.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.178.0/examples/jsm/"
+        }
+    }
+    </script>
 </head>
 <body>
     <video id="initial_animation" autoplay muted playsinline>
         <source src="assets/vid/animacion_inicial_portafoleo.mp4" type="">
     </video>
     <header>
-
+        <nav>
+            <ul>
+                <li><a href="#presentation">Home</a></li>
+            </ul>
+        </nav>
     </header>
     <main>
-        <section class="presentation">
+        <section id="presentation">
             <canvas class="back_ground_game" id="back_game">
 
             </canvas>
@@ -35,8 +47,24 @@
                 <span class="cursor"></span>
             </div>
         </section>
+        <section id="navigation_tree">
+            <div class="row L">
+                <svg class="row_svg" id="row_l" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82.6 56.86">
+                    <polyline points="77.1 5.5 59.2 26.89 41.3 48.29 23.4 26.89 5.5 5.5" fill="none" stroke="#3fb1e6" stroke-linecap="round" stroke-miterlimit="10" stroke-width="11"/>
+                </svg>
+            </div>
+            <div class="row R">
+                <svg class="row_svg" id="row_r" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82.6 56.86">
+                    <polyline points="77.1 5.5 59.2 26.89 41.3 48.29 23.4 26.89 5.5 5.5" fill="none" stroke="#3fb1e6" stroke-linecap="round" stroke-miterlimit="10" stroke-width="11"/>
+                </svg>
+            </div>
+            <div class="card"></div>
+
+        </section>
     </main>
-    <script type="module" src="files/js/pages/index_game_script.js"></script>
-    <script type="module" src="files/js/pages/Index_script.js"></script>
+    <script type="module" src="files/js/pages/index/main.js"></script>
+    <script type="module" src="files/js/pages/index/index_game_script.js"></script>
+    <script type="module" src="files/js/pages/index/Index_script.js"></script>
+
 </body>
 </html>

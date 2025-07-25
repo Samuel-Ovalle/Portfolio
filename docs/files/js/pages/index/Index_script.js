@@ -1,4 +1,4 @@
-import {game} from "../pages/index_game_script.js";
+import {game} from "./index_game_script.js";
 
 const wait = (t) => new Promise(resolve => setTimeout(resolve, t));
 
@@ -43,5 +43,11 @@ const start_logic = ()=>{
 }
 
 const initial_animation = document.getElementById("initial_animation");
+
+window.addEventListener("load", ()=>{
+    initial_animation.scrollIntoView({ behavior: "auto" });
+    history.scrollRestoration = "manual";
+})
+
 initial_animation.addEventListener("ended", ()=>{start_logic()});
 initial_animation.addEventListener("click", ()=>{start_logic()});

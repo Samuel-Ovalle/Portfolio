@@ -19,7 +19,7 @@ export const game = () => {
             
             this.start_position = [x, y];
             this.start_node = [];
-            this.end_node = (direction == 1) ? [x+3, y] : [x-3, y]
+            this.end_node = (direction == 1) ? [x+3, y] : [x-3, y];
         }
         start_ship(){
             this.ship.style.left = `${this.x*panel_cell}px`
@@ -225,7 +225,7 @@ export const game = () => {
     async function update_frame() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        ctx.strokeStyle = "#00e2e1";
+        ctx.strokeStyle = "#00B8FF";
         ctx.lineWidth = .6;
         for (let x = 0; x <= canvas.width; x += cell_size) {
             ctx.beginPath();
