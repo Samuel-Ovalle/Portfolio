@@ -4,11 +4,13 @@ body{
     width: 100vw;
     overflow: hidden;
 }
-#initial_animation{
+body #initial_animation{
     height: 100vh;
     width: 100vw;
     object-fit: cover;
 }
+
+/* ---------------- HEADER ----------------- */
 body header{
     height: 10vh;
     width: 94vw;
@@ -24,6 +26,25 @@ body header{
     opacity: 0;
     transition: opacity 1s ease;
 }
+body header nav{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+body header nav ul{
+    height: 100%;
+    width: 70%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+body header nav ul li a{
+    color: #00B8FF;
+    text-decoration: none;
+}
+
+/* ------------------- MAIN --------------------------- */
 body main{
     display: block;
     height: fit-content;
@@ -35,6 +56,7 @@ body main{
 body main #presentation{
     height: 100vh;
     width: 100vw;
+    margin-bottom: 3vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -74,7 +96,6 @@ body main #presentation #ship_4{
     left: 105vw;
 }
 
-
 body main #presentation .content_my_name{
     border-radius: 4vh;
     height: 20vh;
@@ -108,16 +129,71 @@ body main #presentation .content_my_name .cursor{
     right: 2vw;
     visibility: visible;
 }
-body main #navigation_tree{
-    height: 100vh;
+
+
+body main .blurring_effect_separation{
+    background: linear-gradient(transparent, #000, transparent);
+    height: 20vh;
     width: 100vw;
-}
-body main #navigation_tree #scene{
-    height: 100%;
-    width: 100%;
+    position: absolute;
+    top: 90vh;
 }
 
-.row{
+
+body main #navigation_tree{
+    height: fit-content;
+    width: 100vw;
+}
+body main #navigation_tree .scene{
+    height: 100vh;
+    width: 100%;
+}
+body main #navigation_tree .scene .card_container{
+    height: 80vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 110vh;
+    perspective: 1200px;
+    gap: 40px;
+}
+body main #navigation_tree .scene .card_container .card{
+    border-radius: 20px;
+    border: 4px solid #00B8FF;
+    box-shadow: 0px 0px 15px #00B8FF;
+    background: linear-gradient(5deg, #001528, #000d1a);
+    height: 35vh;
+    width: 16vw;
+    transform-style: preserve-3d;
+}
+
+body main #navigation_tree .blurring_effect_separation{
+    height: 20vh;
+    top: 190vh;
+    opacity: .7;
+}
+
+body main #navigation_tree .scene:nth-child(3) .L,
+body main #navigation_tree .scene:nth-child(3) .R{
+    top: 240vh;
+}
+body main #navigation_tree .scene:nth-child(3) .card_container{
+    top: 210vh;
+}
+
+body main #navigation_tree .scene .card_container .card:nth-child(1){
+    transform: rotateY(-40deg) translateZ(-100px) scale(.8, .8);
+}
+body main #navigation_tree .scene .card_container .card:nth-child(2){
+    transform: rotateY(0deg);
+}
+body main #navigation_tree .scene .card_container .card:nth-child(3){
+    transform: rotateY(40deg) translateZ(-100px) scale(.8, .8);
+}
+
+body main #navigation_tree .scene .row{
     backdrop-filter: blur(10px);
     border-radius: 50%;
     border: 4px solid #00B8FF;
@@ -129,41 +205,25 @@ body main #navigation_tree #scene{
     align-items: center;
     position: absolute;
 }
-.L{
+body main #navigation_tree .scene .L{
     top: 140vh;
-    left: 5vw;
+    left: 2vw;
     z-index: 510;
 }
-.R{
+body main #navigation_tree .scene .R{
     top: 140vh;
-    right: 5vw;
+    right: 2vw;
     z-index: 520;
 }
-.row .row_svg{
-    width: 70%;
-}
-.row #row_l{
+body main #navigation_tree .scene .row .row_svg{width: 70%;}
+body main #navigation_tree .scene .row #row_l{
     margin-right: 15%;
     rotate: 90deg;
 }
-.row #row_r{
+body main #navigation_tree .scene .row #row_r{
     margin-left: 15%;
     rotate: -90deg;
 }
-
-.card{
-    border-radius: 20px;
-    border: 4px solid #00B8FF;
-    box-shadow: 0px 0px 15px #00B8FF;
-    background: linear-gradient(5deg, #001528, #000d1a);
-    height: 35vh;
-    width: 16vw;
-    position: absolute;
-    top: 132vh;
-    left: 42vw;
-    z-index: 501;
-}
-
 
 body footer{
     visibility: hidden;
