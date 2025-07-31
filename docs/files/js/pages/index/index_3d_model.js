@@ -24,11 +24,7 @@ function add_3d_model(container) {
     
     document.getElementById(container).insertAdjacentHTML("afterbegin", 
         `
-        <div class="card_container">
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
-        </div>
+        <div class="card"></div>
         <div class="row L">
             <svg class="row_svg" id="row_l" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82.6 56.86">
                 <polyline points="77.1 5.5 59.2 26.89 41.3 48.29 23.4 26.89 5.5 5.5" fill="none" stroke="#3fb1e6" stroke-linecap="round" stroke-miterlimit="10" stroke-width="11"/>
@@ -92,7 +88,9 @@ function add_3d_model(container) {
         if (model) {
             if (end_angle != actual_angle) {
                 actual_angle = (end_angle > actual_angle) ? actual_angle += 1 : actual_angle -= 1;
+                document.querySelector(`#${container} .card`).style.opacity = "0";
             }
+            else document.querySelector(`#${container} .card`).style.opacity = "1";
             model.rotation.y = actual_angle/100;
         }
         composer.render();

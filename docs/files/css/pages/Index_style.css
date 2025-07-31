@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body{
     background: var(--background-color-1);
     height: fit-content;
@@ -38,10 +42,6 @@ body header nav ul{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-}
-body header nav ul li a{
-    color: #00B8FF;
-    text-decoration: none;
 }
 
 /* ------------------- MAIN --------------------------- */
@@ -148,51 +148,19 @@ body main #navigation_tree .scene{
     height: 100vh;
     width: 100%;
 }
-body main #navigation_tree .scene .card_container{
-    height: 80vh;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: absolute;
-    top: 110vh;
-    perspective: 1200px;
-    gap: 40px;
-}
-body main #navigation_tree .scene .card_container .card{
+body main #navigation_tree .scene .card{
     border-radius: 20px;
     border: 4px solid #00B8FF;
     box-shadow: 0px 0px 15px #00B8FF;
     background: linear-gradient(5deg, #001528, #000d1a);
     height: 35vh;
     width: 16vw;
-    transform-style: preserve-3d;
+    position: absolute;
+    top: 135vh;
+    left: 42vw;
+    opacity: 1;
+    transition: opacity .1s linear;
 }
-
-body main #navigation_tree .blurring_effect_separation{
-    height: 20vh;
-    top: 190vh;
-    opacity: .7;
-}
-
-body main #navigation_tree .scene:nth-child(3) .L,
-body main #navigation_tree .scene:nth-child(3) .R{
-    top: 240vh;
-}
-body main #navigation_tree .scene:nth-child(3) .card_container{
-    top: 210vh;
-}
-
-body main #navigation_tree .scene .card_container .card:nth-child(1){
-    transform: rotateY(-40deg) translateZ(-100px) scale(.8, .8);
-}
-body main #navigation_tree .scene .card_container .card:nth-child(2){
-    transform: rotateY(0deg);
-}
-body main #navigation_tree .scene .card_container .card:nth-child(3){
-    transform: rotateY(40deg) translateZ(-100px) scale(.8, .8);
-}
-
 body main #navigation_tree .scene .row{
     backdrop-filter: blur(10px);
     border-radius: 50%;
@@ -204,15 +172,14 @@ body main #navigation_tree .scene .row{
     justify-content: center;
     align-items: center;
     position: absolute;
+    top: 145vh;
 }
 body main #navigation_tree .scene .L{
-    top: 140vh;
-    left: 2vw;
+    left: 10vw;
     z-index: 510;
 }
 body main #navigation_tree .scene .R{
-    top: 140vh;
-    right: 2vw;
+    right: 10vw;
     z-index: 520;
 }
 body main #navigation_tree .scene .row .row_svg{width: 70%;}
@@ -225,6 +192,89 @@ body main #navigation_tree .scene .row #row_r{
     rotate: -90deg;
 }
 
+body main #navigation_tree .blurring_effect_separation{
+    height: 20vh;
+    top: 190vh;
+    opacity: .7;
+}
+
+body main #navigation_tree .scene:nth-child(3) .card{
+    top: 235vh;
+}
+body main #navigation_tree .scene:nth-child(3) .row{
+    top: 245vh;
+}
+
 body footer{
-    visibility: hidden;
+    border-top: 4px solid #00B8FF;
+    height: fit-content;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+}
+body footer #contact{
+    height: 50vh;
+    width: 35%;
+    padding-left: 2%;
+    display: flex;
+    flex-direction: column;
+}
+body footer #contact a{
+    border-top: 2px solid #00B8FF;
+    width: 80%;
+    padding-top: 2%;
+    margin-top: 4%;
+}
+body footer #contact a:hover{
+    color: #66E0FF;
+}
+body footer #contact #links{
+    border-top: 2px solid #00B8FF;
+    height: 16%;
+    width: 80%;
+    padding-top: 1%;
+    margin-top: 4%;
+    display: flex;
+    justify-content: space-around;
+}
+body footer #contact #links a{
+    border: none;
+    height: 100%;
+    width: fit-content;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+}
+body footer #contact #links a img{
+    height: 100%;
+    width: fit-content;
+    display: inline-block;
+}
+body footer #contact .btn-cv{
+    border: none;
+    border-radius: 20px;
+    background: var(--text-color-1);
+    height: 12%;
+    width: 50%;
+    margin-left: 12.5%;
+    color: #fff;
+    text-align: center;
+}
+body footer #technologies_list{
+    height: 50vh;
+    width: 65%;
+    padding-top: 1%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+body footer #technologies_list li{
+    color: var(--text-color-1);
+}
+body footer #technologies_list li ul li{
+    color: #0098D4;
+    cursor: pointer;
+}
+body footer #technologies_list li ul li:hover{
+    color: #66E0FF;
 }
