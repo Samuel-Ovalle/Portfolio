@@ -153,13 +153,48 @@ body main #navigation_tree .scene .card{
     border: 4px solid #00B8FF;
     box-shadow: 0px 0px 15px #00B8FF;
     background: linear-gradient(5deg, #001528, #000d1a);
-    height: 35vh;
+    height: fit-content;
     width: 16vw;
+    padding-top: .5%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     position: absolute;
     top: 135vh;
     left: 42vw;
     opacity: 1;
     transition: opacity .1s linear;
+    font-size: 3vh;
+}
+body main #navigation_tree .scene .card img{
+    height: 20vh;
+    margin-top: 3%;
+}
+body main #navigation_tree .scene .card p{
+    width: 90%;
+    margin-top: 1vh;
+    margin-bottom: 2vh;
+    text-align: center;
+    font-size: 2.5vh;
+}
+body main #navigation_tree .scene .card a{
+    cursor: pointer;
+    border-radius: 25px;
+    border: 2px solid #00B8FF;
+    background: transparent;
+    height: 5vh;
+    width: 80%;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    font-size: 2.5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform .5s;
+}
+body main #navigation_tree .scene .card button:hover{
+    transform: scale(1.1);
 }
 body main #navigation_tree .scene .row{
     backdrop-filter: blur(10px);
@@ -173,6 +208,11 @@ body main #navigation_tree .scene .row{
     align-items: center;
     position: absolute;
     top: 145vh;
+    transition: transform .3s;
+}
+body main #navigation_tree .scene .row:hover{
+    transform: scale(1.1);
+
 }
 body main #navigation_tree .scene .L{
     left: 10vw;
@@ -204,6 +244,7 @@ body main #navigation_tree .scene:nth-child(3) .card{
 body main #navigation_tree .scene:nth-child(3) .row{
     top: 245vh;
 }
+
 
 body footer{
     border-top: 4px solid #00B8FF;
