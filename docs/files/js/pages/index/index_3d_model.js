@@ -68,7 +68,7 @@ function add_3d_model(container, imgs) {
     let model;
     const loader = new GLTFLoader();
     loader.load(
-        '/docs/assets/model/platforms.gltf',
+        '/Portfolio/assets/model/platforms.gltf',
         (gltf) => {
             model = gltf.scene;
             scene.add(model);
@@ -108,7 +108,7 @@ function add_3d_model(container, imgs) {
                 document.querySelector(`#${container} .card`).insertAdjacentHTML("beforeend", `<img src="assets/img/icons/${imgs[img_index][0]}.png" alt=""> <p>${imgs[img_index][1]} years of experience</p>`)
             }else if (container === "projects"){
                 document.querySelector(`#${container} .card`).textContent = imgs[img_index].replace(/_/g, " ");
-                document.querySelector(`#${container} .card`).insertAdjacentHTML("beforeend", `<img src="assets/img/icons/${imgs[img_index]}.png" alt=""> <a>Explore</a>`)
+                document.querySelector(`#${container} .card`).insertAdjacentHTML("beforeend", `<img src="assets/img/icons/${imgs[img_index]}.png" alt=""> <a href="">Explore</a>`)
             }
         }, 500);
     })
@@ -122,7 +122,7 @@ function add_3d_model(container, imgs) {
                 document.querySelector(`#${container} .card`).insertAdjacentHTML("beforeend", `<img src="assets/img/icons/${imgs[img_index][0]}.png" alt=""> <p>${imgs[img_index][1]} years of experience</p>`)
             }else if (container === "projects"){
                 document.querySelector(`#${container} .card`).textContent = imgs[img_index].replace(/_/g, " ");
-                document.querySelector(`#${container} .card`).insertAdjacentHTML("beforeend", `<img src="assets/img/icons/${imgs[img_index]}.png" alt=""> <a>Explore</a>`)
+                document.querySelector(`#${container} .card`).insertAdjacentHTML("beforeend", `<img src="assets/img/icons/${imgs[img_index]}.png" alt=""> <a href="">Explore</a>`)
             }
         }, 500);
     })
