@@ -40,8 +40,35 @@ function add_3d_model(container, imgs) {
     )
     document.getElementById(container).appendChild(renderer.domElement);
 
+    /* ── 2. RESPONSIVE ─────────────────────────────────────────── */
+
+    document.querySelector(`#${container} canvas`).style.height = "100vh"
+    document.querySelector(`#${container} canvas`).style.width = "100vw"
+
+    // Ensure the canvas does not create unwanted scrollbars
+    renderer.domElement.style.display = "block";
+
+    // --- Dynamic resize to 100vw/100vh ---
+    function resizeToViewport() {
+        const width  = window.innerWidth;
+        const height = window.innerHeight;
+
+        // Set renderer size to match viewport
+        renderer.setSize(width, height, false);
+
+        // Improve sharpness without killing performance (cap at 2x)
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+
+        // Update camera aspect ratio
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+    }
+
+    // Initial call and listener
+    resizeToViewport();
+    window.addEventListener("resize", resizeToViewport);
     
-    /* ── 2. ILLUMINATION ─────────────────────────────────────────── */
+    /* ── 3. ILLUMINATION ─────────────────────────────────────────── */
     
     RectAreaLightUniformsLib.init();
     
@@ -51,7 +78,7 @@ function add_3d_model(container, imgs) {
     key.rotation.x = -Math.PI / 2;   // points downward
     scene.add(key);
     
-    /* ── 3. COMPOSER + BLOOM ───────────────────────────────────────────── */
+    /* ── 4. COMPOSER + BLOOM ───────────────────────────────────────────── */
     const composer = new EffectComposer(renderer);
     composer.addPass(new RenderPass(scene, camera));
     
@@ -63,12 +90,13 @@ function add_3d_model(container, imgs) {
     );
     composer.addPass(bloomPass);
     
-    /* ── 4. LOAD MODEL GLTF ──────────────────────────────────────── */
+    /* ── 5. LOAD MODEL GLTF ──────────────────────────────────────── */
     
     let model;
     const loader = new GLTFLoader();
     loader.load(
-        '/Portfolio/assets/model/platforms.gltf',
+        // '/Portfolio/assets/model/platforms.gltf'
+        '/docs/assets/model/platforms.gltf',
         (gltf) => {
             model = gltf.scene;
             scene.add(model);
@@ -78,7 +106,7 @@ function add_3d_model(container, imgs) {
     );
     
     
-    /* ── 5. LOOP ───────────────────────────────────────────────────────── */
+    /* ── 6. LOOP ───────────────────────────────────────────────────────── */
     
     let end_angle = 22.5;
     let actual_angle = end_angle;
@@ -97,6 +125,8 @@ function add_3d_model(container, imgs) {
         composer.render();
     }
     animate();
+
+    /* ── 7. MOVEMENT ───────────────────────────────────────────────────────── */
     
     document.querySelector(`#${container} .L`).addEventListener("click", ()=>{
         end_angle += 45;

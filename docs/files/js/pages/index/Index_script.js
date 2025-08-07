@@ -5,9 +5,9 @@ const wait = (t) => new Promise(resolve => setTimeout(resolve, t));
 const start_logic = ()=>{
     game();
     initial_animation.remove();
-    document.querySelector("header").style.visibility = "visible";
+    // document.querySelector("header").style.visibility = "visible";
     document.querySelector("main").style.visibility = "visible";
-    document.querySelector("header").style.opacity = "1";
+    // document.querySelector("header").style.opacity = "1";
     document.querySelector("main").style.opacity = "1";
     document.querySelector("body").style.overflowY = "visible";
 

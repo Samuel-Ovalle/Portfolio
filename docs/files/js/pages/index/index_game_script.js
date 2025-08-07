@@ -223,6 +223,14 @@ export const game = () => {
     }
     
     async function update_frame() {
+        window_height = window.innerHeight;
+        window_width = window.innerWidth;
+
+        canvas.height = window_height;
+        canvas.width = window_width;
+
+        cell_size = (window_width < 900) ? window_height/25 : window_width/25;
+
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         ctx.strokeStyle = "#00B8FF";
@@ -245,12 +253,15 @@ export const game = () => {
     const canvas = document.getElementById("back_game");
     const ctx = canvas.getContext("2d");
 
-    const window_height = window.innerHeight;
-    const window_width = window.innerWidth;
+    let window_height = window.innerHeight;
+    let window_width = window.innerWidth;
 
-    const cell_size = window_width/25;
-    const panel_cell = cell_size/2;
+    let cell_size = (window_width < 900) ? window_height/20 : window_width/25;
+    let panel_cell = cell_size/2;
     
+    canvas.height = window_height;
+    canvas.width = window_width;
+
     // x panel_cell = 50
     // y panel_cell = 24
     let map = []
@@ -259,33 +270,30 @@ export const game = () => {
         for (let x = 0; x < 50; x++) {row.push(0)};
         map.push(row);
     }
-    
-    canvas.height = window_height;
-    canvas.width = window_width;
 
-    const all_ships = document.querySelectorAll(".ship");
+    // const all_ships = document.querySelectorAll(".ship");
 
-    let ship_1 = new ship(all_ships[0], all_ships[0].height, all_ships[0].width, 3, 3, -90, 1, true, "#00f0ff");
-    let ship_2 = new ship(all_ships[1], all_ships[1].height, all_ships[1].width, 47, 3, 90, 3, true, "#ff0000");
-    let ship_3 = new ship(all_ships[2], all_ships[2].height, all_ships[2].width, 3, 22, -90, 1, true, "#00ff00");
-    let ship_4 = new ship(all_ships[3], all_ships[3].height, all_ships[3].width, 47, 22, 90, 3, true, "#ffff00");
+    // let ship_1 = new ship(all_ships[0], all_ships[0].height, all_ships[0].width, 3, 3, -90, 1, true, "#00f0ff");
+    // let ship_2 = new ship(all_ships[1], all_ships[1].height, all_ships[1].width, 47, 3, 90, 3, true, "#ff0000");
+    // let ship_3 = new ship(all_ships[2], all_ships[2].height, all_ships[2].width, 3, 22, -90, 1, true, "#00ff00");
+    // let ship_4 = new ship(all_ships[3], all_ships[3].height, all_ships[3].width, 47, 22, 90, 3, true, "#ffff00");
 
     update_frame();
     setTimeout(() => {
-        ship_1.start_ship();
-        ship_2.start_ship();
-        ship_3.start_ship();
-        ship_4.start_ship();
+        // ship_1.start_ship();
+        // ship_2.start_ship();
+        // ship_3.start_ship();
+        // ship_4.start_ship();
 
         const game_flow = setTimeout(() => {
             setInterval(() => {
-                if (ship_1.status === false && ship_2.status === false && ship_3.status === false && ship_4.status === false) clearInterval(game_flow)
+                // if (ship_1.status === false && ship_2.status === false && ship_3.status === false && ship_4.status === false) clearInterval(game_flow)
                 
                 update_frame();
-                ship_1.move();
-                ship_2.move();
-                ship_3.move();
-                ship_4.move();
+                // ship_1.move();
+                // ship_2.move();
+                // ship_3.move();
+                // ship_4.move();
             }, 100);
         }, 800);
     }, 1000);
