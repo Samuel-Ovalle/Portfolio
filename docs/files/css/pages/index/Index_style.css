@@ -1,6 +1,4 @@
-html {
-  scroll-behavior: smooth;
-}
+html {scroll-behavior: smooth;}
 
 body{
     background: var(--background-color-1);
@@ -17,38 +15,45 @@ body #initial_animation{
 /* ---------------- HEADER ----------------- */
 body header{
     height: 10vh;
-    width: 94vw;
-    border-radius: 15px;
+    width: 100vw;
+    position: sticky;
+    top: 0;
     display: flex;
-    position: absolute;
-    top: 2vh;
-    left: 3vw;
-    backdrop-filter: blur(5px);
+    justify-content: center;
     z-index: 1000;
 
     visibility: hidden;
     opacity: 0;
     transition: opacity 1s ease;
 }
-body header nav{
-    height: 100%;
-    width: 100%;
+body header #desktop_nav{
+    height: 10vh;
+    width: 94vw;
+    border-radius: 20px;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
+    position: absolute;
+    top: 2vh;
+    left: 3vw;
+    backdrop-filter: blur(5px);
 }
-body header nav ul{
+body header #desktop_nav ul{
     height: 100%;
     width: 70%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 }
+body header #icon_menu {visibility: hidden;}
+body header #mobile_nav{visibility: hidden;}
 
 /* ------------------- MAIN --------------------------- */
 body main{
     display: block;
     height: fit-content;
     width: 100vw;
+    position: relative;
+    top: -10vh;
     visibility: hidden;
     opacity: 0;
     transition: opacity 1s ease;
@@ -104,7 +109,7 @@ body main #presentation .content_my_name{
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: 40%;
+    top: 45vh;
 }
 body main #presentation .content_my_name h1{
     border-radius: 5vh;
@@ -113,7 +118,7 @@ body main #presentation .content_my_name h1{
     backdrop-filter: blur(5px);
     height: 100%;
     width: fit-content;
-    padding: 4vw;
+    padding: 4vw 2vw;
     text-align: center;
     font-size: 6vw;
     -webkit-text-stroke: 2px #00B8FF;
@@ -196,9 +201,7 @@ body main #navigation_tree .scene .card a{
     align-items: center;
     transition: transform .5s;
 }
-body main #navigation_tree .scene .card button:hover{
-    transform: scale(1.1);
-}
+body main #navigation_tree .scene .card button:hover{transform: scale(1.1);}
 body main #navigation_tree .scene .row{
     backdrop-filter: blur(10px);
     border-radius: 50%;
@@ -213,10 +216,7 @@ body main #navigation_tree .scene .row{
     top: 145vh;
     transition: transform .3s;
 }
-body main #navigation_tree .scene .row:hover{
-    transform: scale(1.1);
-
-}
+body main #navigation_tree .scene .row:hover{transform: scale(1.1);}
 body main #navigation_tree .scene .L{
     left: 10vw;
     z-index: 510;
@@ -241,12 +241,8 @@ body main #navigation_tree .blurring_effect_separation{
     opacity: .7;
 }
 
-body main #navigation_tree .scene:nth-child(3) .card{
-    top: 235vh;
-}
-body main #navigation_tree .scene:nth-child(3) .row{
-    top: 245vh;
-}
+body main #navigation_tree .scene:nth-child(3) .card{top: 235vh;}
+body main #navigation_tree .scene:nth-child(3) .row{top: 245vh;}
 
 
 body footer{
@@ -270,9 +266,7 @@ body footer #contact a{
     padding-top: 2%;
     margin-top: 4%;
 }
-body footer #contact a:hover{
-    color: #66E0FF;
-}
+body footer #contact a:hover{color: #66E0FF;}
 body footer #contact #links{
     border-top: 2px solid #00B8FF;
     height: 20%;
@@ -321,13 +315,9 @@ body footer #technologies_list{
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
 }
-body footer #technologies_list li{
-    color: var(--text-color-1);
-}
+body footer #technologies_list li{color: var(--text-color-1);}
 body footer #technologies_list li ul li{
     color: #0098D4;
     cursor: pointer;
 }
-body footer #technologies_list li ul li:hover{
-    color: #66E0FF;
-}
+body footer #technologies_list li ul li:hover{color: #66E0FF;}

@@ -1,4 +1,34 @@
 @media (width < 900px) {
+    body header #desktop_nav{visibility: hidden;}
+    body header #icon_menu {
+        visibility: visible;
+        height: 6vh;
+        width: 7vh;
+        position: absolute;
+        top: 2vh;
+        right: 2vw;
+    }
+    body header #mobile_nav{
+        visibility: visible;
+        border-radius: 20px 0px 0px 20px;
+        border: 1px solid #00B8FF;
+        height: 100vh;
+        width: 70vw;
+        backdrop-filter: blur(5px);
+        text-align: end;
+        font-size: 8vw;
+        position: absolute;
+        right: -70vw;
+        transition: right .4s;
+    }
+    body header #mobile_nav ul{
+        height: 70%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
     body main #navigation_tree .scene .row{
         height: 17vw;
         width: 17vw;

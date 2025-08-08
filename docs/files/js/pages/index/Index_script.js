@@ -5,11 +5,37 @@ const wait = (t) => new Promise(resolve => setTimeout(resolve, t));
 const start_logic = ()=>{
     game();
     initial_animation.remove();
-    // document.querySelector("header").style.visibility = "visible";
+    document.querySelector("header").style.visibility = "visible";
     document.querySelector("main").style.visibility = "visible";
-    // document.querySelector("header").style.opacity = "1";
+    document.querySelector("header").style.opacity = "1";
     document.querySelector("main").style.opacity = "1";
     document.querySelector("body").style.overflowY = "visible";
+
+    let menu_status = false;
+    const menu = document.querySelector("#mobile_nav");
+
+    document.querySelector("#icon_menu").addEventListener("click", ()=>{
+        menu.style.display = "block"
+        setTimeout(()=>{menu.style.right = "0vw";},1)
+        menu_status = true;
+    })
+    document.querySelectorAll("#mobile_nav ul li a").forEach(element => {
+        element.addEventListener("click", ()=>{
+            if (menu_status === true) {
+                menu.style.right = "-70vw";
+                setTimeout(()=>{menu.style.display = "none"}, 500)
+                menu_status = false;
+            }
+        })
+    });
+
+    document.querySelector("main").addEventListener("click", ()=>{
+        if (menu_status === true) {
+            menu.style.right = "-70vw";
+            setTimeout(()=>{menu.style.display = "none"}, 500)
+            menu_status = false;
+        }
+    });
 
     async function add_text(element, texts){
         const target = document.querySelector(`#${element}`);
