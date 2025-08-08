@@ -223,13 +223,13 @@ export const game = () => {
     }
     
     async function update_frame() {
-        window_height = window.innerHeight;
-        window_width = window.innerWidth;
+        // window_height = window.innerHeight;
+        // window_width = window.innerWidth;
 
-        canvas.height = window_height;
-        canvas.width = window_width;
+        // canvas.height = window_height;
+        // canvas.width = window_width;
 
-        cell_size = (window_width < 900) ? window_height/25 : window_width/25;
+        // cell_size = (window_width < 900) ? window_height/25 : window_width/25;
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -253,8 +253,8 @@ export const game = () => {
     const canvas = document.getElementById("back_game");
     const ctx = canvas.getContext("2d");
 
-    let window_height = window.innerHeight;
-    let window_width = window.innerWidth;
+    const window_height = window.innerHeight;
+    const window_width = window.innerWidth;
 
     let cell_size = (window_width < 900) ? window_height/20 : window_width/25;
     let panel_cell = cell_size/2;
