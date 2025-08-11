@@ -223,13 +223,15 @@ export const game = () => {
     }
     
     async function update_frame() {
-        // window_height = window.innerHeight;
-        // window_width = window.innerWidth;
-
-        // canvas.height = window_height;
-        // canvas.width = window_width;
-
-        // cell_size = (window_width < 900) ? window_height/25 : window_width/25;
+        if (window_height != window.innerHeight || window_width != window.innerWidth) {
+            window_height = window.innerHeight;
+            window_width = window.innerWidth;
+        
+            canvas.height = window_height;
+            canvas.width = window_width;
+            
+            cell_size = (window_width < 900) ? window_height/25 : window_width/25;
+        }
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -253,19 +255,19 @@ export const game = () => {
     const canvas = document.getElementById("back_game");
     const ctx = canvas.getContext("2d");
 
-    const window_height = window.innerHeight;
-    const window_width = window.innerWidth;
+    let window_height = window.innerHeight;
+    let window_width = window.innerWidth;
 
-    let cell_size = (window_width < 900) ? window_height/20 : window_width/25;
+    let cell_size = (window_width < 900) ? window_height/25 : window_width/25;
     let panel_cell = cell_size/2;
     
     canvas.height = window_height;
     canvas.width = window_width;
 
     // x panel_cell = 50
-    // y panel_cell = 24
+    // y panel_cell = 50
     let map = []
-    for (let y = 0; y < 24; y++) {
+    for (let y = 0; y < 50; y++) {
         let row = [];
         for (let x = 0; x < 50; x++) {row.push(0)};
         map.push(row);

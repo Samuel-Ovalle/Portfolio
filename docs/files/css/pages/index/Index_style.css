@@ -52,8 +52,6 @@ body main{
     display: block;
     height: fit-content;
     width: 100vw;
-    position: relative;
-    top: -10vh;
     visibility: hidden;
     opacity: 0;
     transition: opacity 1s ease;
@@ -286,7 +284,7 @@ body footer #contact #links a{
 }
 body footer #contact #links a img{
     height: 100%;
-    width: fit-content;
+    width: min-content;
     display: inline-block;
 }
 body footer #contact .btn-cv{

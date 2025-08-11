@@ -52,6 +52,7 @@ function add_3d_model(container, imgs) {
     function resizeToViewport() {
         const width  = window.innerWidth;
         const height = window.innerHeight;
+        if (width < 900) camera.position.set(-.01, .3, 2.3);          // camera position
 
         // Set renderer size to match viewport
         renderer.setSize(width, height, false);
@@ -95,8 +96,8 @@ function add_3d_model(container, imgs) {
     let model;
     const loader = new GLTFLoader();
     loader.load(
-        '/Portfolio/assets/model/platforms.gltf',
-        // '/docs/assets/model/platforms.gltf',
+        // '/Portfolio/assets/model/platforms.gltf',
+        '/docs/assets/model/platforms.gltf',
         (gltf) => {
             model = gltf.scene;
             scene.add(model);
@@ -108,7 +109,7 @@ function add_3d_model(container, imgs) {
     
     /* ── 6. LOOP ───────────────────────────────────────────────────────── */
     
-    let end_angle = 22.5;
+    let end_angle = 2244;
     let actual_angle = end_angle;
     
     function animate() {
@@ -116,11 +117,12 @@ function add_3d_model(container, imgs) {
     
         if (model) {
             if (end_angle != actual_angle) {
-                actual_angle = (end_angle > actual_angle) ? actual_angle += 1 : actual_angle -= 1;
+                actual_angle = (end_angle > actual_angle) ? actual_angle += 66 : actual_angle -= 66;
                 document.querySelector(`#${container} .card`).style.opacity = "0";
             }
             else document.querySelector(`#${container} .card`).style.opacity = "1";
-            model.rotation.y = actual_angle/100;
+
+            model.rotation.y = actual_angle/10000;
         }
         composer.render();
     }
@@ -129,51 +131,94 @@ function add_3d_model(container, imgs) {
     /* ── 7. MOVEMENT ───────────────────────────────────────────────────────── */
     
     document.querySelector(`#${container} .L`).addEventListener("click", ()=>{
-        end_angle += 45;
+        end_angle += 4488;
         img_index = (img_index !== 0) ? img_index-1 : img_index = (imgs.length-1);
 
         setTimeout(() => {
             if (container === "technologies") {
-                document.querySelector(`#${container} .card`).textContent = imgs[img_index][0].replace(/_/g, " ");
-                document.querySelector(`#${container} .card`).insertAdjacentHTML("beforeend", `<img src="assets/img/icons/${imgs[img_index][0]}.png" alt=""> <p>${imgs[img_index][1]} years of experience</p>`)
+                document.querySelector(`#${container} .card`).textContent = imgs[img_index][0]
+                document.querySelector(`#${container} .card`).insertAdjacentHTML("beforeend", `<img src="${imgs[img_index][1]}" alt=""> <p>${imgs[img_index][2]} years of experience</p>`)
             }else if (container === "projects"){
-                document.querySelector(`#${container} .card`).textContent = imgs[img_index].replace(/_/g, " ");
-                document.querySelector(`#${container} .card`).insertAdjacentHTML("beforeend", `<img src="assets/img/icons/${imgs[img_index]}.png" alt=""> <a href="">Explore</a>`)
+                document.querySelector(`#${container} .card`).textContent = imgs[img_index][0]
+                document.querySelector(`#${container} .card`).insertAdjacentHTML("beforeend", `<img src="${imgs[img_index][1]}" alt=""> <a href="">Explore</a>`)
             }
         }, 500);
     })
     document.querySelector(`#${container} .R`).addEventListener("click", ()=>{
-        end_angle -= 45;
+        end_angle -= 4488;
         img_index = (img_index !== (imgs.length-1)) ? img_index+1 : img_index = 0;
 
         setTimeout(() => {
             if (container === "technologies") {
-                document.querySelector(`#${container} .card`).textContent = imgs[img_index][0].replace(/_/g, " ");
-                document.querySelector(`#${container} .card`).insertAdjacentHTML("beforeend", `<img src="assets/img/icons/${imgs[img_index][0]}.png" alt=""> <p>${imgs[img_index][1]} years of experience</p>`)
+                document.querySelector(`#${container} .card`).textContent = imgs[img_index][0]
+                document.querySelector(`#${container} .card`).insertAdjacentHTML("beforeend", `<img src="${imgs[img_index][1]}" alt=""> <p>${imgs[img_index][2]} years of experience</p>`)
             }else if (container === "projects"){
-                document.querySelector(`#${container} .card`).textContent = imgs[img_index].replace(/_/g, " ");
-                document.querySelector(`#${container} .card`).insertAdjacentHTML("beforeend", `<img src="assets/img/icons/${imgs[img_index]}.png" alt=""> <a href="">Explore</a>`)
+                document.querySelector(`#${container} .card`).textContent = imgs[img_index][0]
+                document.querySelector(`#${container} .card`).insertAdjacentHTML("beforeend", `<img src="${imgs[img_index][1]}" alt=""> <a href="">Explore</a>`)
             }
         }, 500);
     })
 }
 
-let technologies = [["HTML5", 4], ["CSS3", 4], ["JavaScript", 4], ["PHP", 3], ["React", 1], ["Python", 1], ["C++ (CPlusPlus)", 1], ["MySQL", 2], ["SQLite", 2], ["Git", 2], ["Github", 2], ["Blender", 2], ["Adobe_Illustrator", 5], ["Adobe_Photoshop", 1], ["Adobe_Premiere_Pro", 2]]
+// name, experience, src img
+const technologies = [
+    ["HTML5", "assets/img/icons/HTML5.png", 4], 
+    ["CSS3", "assets/img/icons/CSS3.png", 4], 
+    ["JavaScript", "assets/img/icons/JavaScript.png", 4], 
+    ["PHP", "assets/img/icons/PHP.png", 3], 
+    ["React", "assets/img/icons/React.png", 1], 
+    ["Python", "assets/img/icons/Python.png", 1], 
+    ["C++", "assets/img/icons/C++.png", 1], 
+    ["MySQL", "assets/img/icons/MySQL.png", 2], 
+    ["SQLite", "assets/img/icons/SQLite.png", 2], 
+    ["Git", "assets/img/icons/Git.png", 2], 
+    ["Github", "assets/img/icons/Github.png", 2], 
+    ["Blender", "assets/img/icons/Blender.png", 2], 
+    ["Adobe Illustrator", "assets/img/icons/Adobe_Illustrator.png", 5], 
+    ["Adobe Photoshop", "assets/img/icons/Adobe_Photoshop.png", 1], 
+    ["Adobe Premiere Pro", "assets/img/icons/Adobe_Premiere_Pro.png", 2]
+]
+technologies.forEach(element =>{
+    element.forEach((data, index)=>{
+        if (index === 1) {
+            const img = new Image();
+            img.src = data;
+        }
+    })
+})
+
 add_3d_model("technologies", technologies)
 document.querySelector("#technologies .card").insertAdjacentHTML("afterbegin",
     `
-        ${technologies[0][0].replace(/_/g, " ")}
-        <img src="assets/img/icons/${technologies[0][0]}.png" alt="">
-        <p>${technologies[0][1]} years of experience</p>
+        ${technologies[0][0]}
+        <img src="${technologies[0][1]}" alt="">
+        <p>${technologies[0][2]} years of experience</p>
     `
 )
 
-let projects = ["Movi-Grip", "Ships_Game", "3D_model", "Web_Designs", "Automatic_Whatsapp", "Calculators"]
+// name, src img, src project
+const projects = [
+    ["Movi-Grip", "assets/img/icons/Movi-Grip.png"], 
+    ["Ships Game", "assets/img/icons/Ships_Game.png"], 
+    ["3D model", "assets/img/icons/3D_model.png"], 
+    ["Web Designs", "assets/img/icons/Web_Designs.png"], 
+    ["Automatic Whatsapp", "assets/img/icons/Automatic_Whatsapp.png"], 
+    ["Calculators", "assets/img/icons/Calculators.png"]
+]
+projects.forEach(element =>{
+    element.forEach((data, index)=>{
+        if (index === 1) {
+            const img = new Image();
+            img.src = data;
+        }
+    })
+})
+
 add_3d_model("projects", projects)
 document.querySelector("#projects .card").insertAdjacentHTML("afterbegin",
     `
-        ${projects[0].replace(/_/g, " ")}
-        <img src="assets/img/icons/${projects[0]}.png" alt="">
+        ${projects[0][0]}
+        <img src="${projects[0][1]}" alt="">
         <a href="">Explore</a>
     `
 )

@@ -65,7 +65,7 @@ const start_logic = ()=>{
     setTimeout(() => {
         let texts = ["Samuel Ovalle is", "Full-stack developer"];
         add_text("my_name", texts)
-    }, 3000);
+    }, 1500);
 }
 
 const initial_animation = document.getElementById("initial_animation");
