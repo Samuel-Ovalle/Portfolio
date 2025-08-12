@@ -15,18 +15,22 @@ export const game = () => {
                 case 1:
                     this.x = 3;
                     this.y = 4;
+                    this.end_node = [this.x+2, this.y];
                     break;
                 case 2:
                     this.x = map_width-3;
                     this.y = 4;
+                    this.end_node = [this.x-2, this.y];
                     break;
                 case 3:
                     this.x = 3;
                     this.y = map_height-4;
+                    this.end_node = [this.x+6, this.y];
                     break;
                 case 4:
                     this.x = map_width-3;
                     this.y = map_height-4;
+                    this.end_node = [this.x-6, this.y];
                     break;
             }
             
@@ -38,7 +42,6 @@ export const game = () => {
             
             this.start_position = [this.x, this.y];
             this.start_node = [];
-            this.end_node = (direction == 1) ? [this.x+6, this.y] : [this.x-6, this.y];
         }
         start_ship(){
             this.ship.style.left = `${(this.x*panel_cell)-(this.width/2)}px`

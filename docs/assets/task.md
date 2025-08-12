@@ -7,5 +7,4 @@
 * current task
 
 * task complete
-- fix error in game canvas
-- adjust game to work in any screen
+- fix error in game canvas when start in vertical

@@ -96,8 +96,8 @@ function add_3d_model(container, imgs) {
     let model;
     const loader = new GLTFLoader();
     loader.load(
-        '/Portfolio/assets/model/platforms.gltf',
-        // '/docs/assets/model/platforms.gltf',
+        // '/Portfolio/assets/model/platforms.gltf',
+        '/docs/assets/model/platforms.gltf',
         (gltf) => {
             model = gltf.scene;
             scene.add(model);
