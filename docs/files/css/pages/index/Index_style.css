@@ -69,34 +69,25 @@ body main #presentation .back_ground_game{
     width: 100%;
 }
 body main #presentation .ship{
-    height: 10vh;
     position: absolute;
     object-fit: scale-down;
-    transition: top 0.3s linear, left 1s linear, transform 0.3s linear;
+    transition: none;
 }
 body main #presentation #ship_1{
     filter: drop-shadow(0vh 0vh 7px #00f);
     transform: rotate(-90deg);
-    top: 7vh;
-    left: -5vw;
 }
 body main #presentation #ship_2{
     filter: drop-shadow(0vh 0vh 7px #f00);
     transform: rotate(90deg);
-    top: 7vh;
-    left: 105vw;
 }
 body main #presentation #ship_3{
     filter: drop-shadow(0vh 0vh 7px #0f0);
     transform: rotate(-90deg);
-    top: 82vh;
-    left: -5vw;
 }
 body main #presentation #ship_4{
     filter: drop-shadow(0vh 0vh 7px #ff0);
     transform: rotate(90deg);
-    top: 82vh;
-    left: 105vw;
 }
 
 body main #presentation .content_my_name{

@@ -1,29 +1,49 @@
 export const game = () => {
     class ship {
-        constructor(ship, height, width, x, y, angle, direction, status, color) {
+        constructor(ship, angle, direction, status, color, index) {
             this.ship = ship;
-            this.height = height;
-            this.width = width;
-            this.x = x;
-            this.y = y;
             this.angle = angle;
             this.direction = direction;
             this.status = status;
             this.color = color;
+            this.index = index;
 
+            this.height = cell_size*1.4;
+            this.ship.style.height = `${this.height}px`;
+            this.width = this.ship.width;
+            switch (index) {
+                case 1:
+                    this.x = 3;
+                    this.y = 4;
+                    break;
+                case 2:
+                    this.x = map_width-3;
+                    this.y = 4;
+                    break;
+                case 3:
+                    this.x = 3;
+                    this.y = map_height-4;
+                    break;
+                case 4:
+                    this.x = map_width-3;
+                    this.y = map_height-4;
+                    break;
+            }
+            
             this.movement_map = [];
             this.movement_index = 0;
             
             this.movement_history = [];
             this.movement_history_index = 0;
             
-            this.start_position = [x, y];
+            this.start_position = [this.x, this.y];
             this.start_node = [];
-            this.end_node = (direction == 1) ? [x+3, y] : [x-3, y];
+            this.end_node = (direction == 1) ? [this.x+6, this.y] : [this.x-6, this.y];
         }
         start_ship(){
-            this.ship.style.left = `${this.x*panel_cell}px`
-            setTimeout(() => {this.ship.style.transition = "top .3s ease, left .3s ease, transform 0.3s ease"}, 1000);
+            this.ship.style.left = `${(this.x*panel_cell)-(this.width/2)}px`
+            this.ship.style.top = `${(this.y*panel_cell)-(this.height/2)}px`
+            setTimeout(() => {this.ship.style.transition = "all .3s ease"}, 1000);
         }
         update_movement(){
             this.movement_map = [];
@@ -69,15 +89,14 @@ export const game = () => {
                 closed_list.push(current_node);
                 
                 if (current_node.x === this.end_node[0] && current_node.y === this.end_node[1]) {
-                    this.end_node = [Math.floor(Math.random() * 49)+1, Math.floor(Math.random() * 23)+1];
+                    this.end_node = [Math.floor(Math.random() * (map_width-1))+1, Math.floor(Math.random() * (map_height-1))+1];
                     break
                 }else{
                     let neighbor = UUV(current_node.x, current_node.y).filter(e =>
-                        e.x >= 0 && e.x < 50 &&
-                        e.y >= 0 && e.y < 24  &&
+                        e.x >= 0 && e.x < map_width &&
+                        e.y >= 0 && e.y < map_height &&
                         map[e.y][e.x] !== 1
                     );
-
 
                     for (const element of neighbor) {
                         if (closed_list.some(o=> o.x === element.x && o.y === element.y)) {
@@ -190,7 +209,7 @@ export const game = () => {
                     this.movement_history_index++;
                     
                     // ----- update map ------
-                    map[this.y][this.x] = 1;
+                    map[this.y][this.x] = this.index;
                     
                     // ----- translate -----
                     switch (movements_draw[movements_draw.length-1][0]) {
@@ -214,10 +233,16 @@ export const game = () => {
                 }
 
                 // check ship status
-                if (map[this.y][this.x] === 1) {
+                if (map[this.y][this.x] !== 0) {
                     this.status = false;
                     setTimeout(() => {this.ship.remove();}, 200);
                 }
+            }
+            else{
+                map.forEach(x =>{x.forEach(y =>{
+                        if (y === this.index) {y = 0;}
+                    })
+                })
             }
         }
     }
@@ -229,8 +254,12 @@ export const game = () => {
         
             canvas.height = window_height;
             canvas.width = window_width;
-            
-            cell_size = (window_width < 900) ? window_height/25 : window_width/25;
+
+            cell_size = (window_height > window_width) ? window_height/25 : window_width/25;
+            panel_cell = cell_size/2;
+
+            map_height = Math.floor(canvas.height / panel_cell); 
+            map_width = Math.floor(canvas.width / panel_cell);
         }
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -257,12 +286,15 @@ export const game = () => {
 
     let window_height = window.innerHeight;
     let window_width = window.innerWidth;
-
-    let cell_size = (window_width < 900) ? window_height/25 : window_width/25;
-    let panel_cell = cell_size/2;
     
     canvas.height = window_height;
     canvas.width = window_width;
+    
+    let cell_size = (window_width < 900) ? window_height/25 : window_width/25;
+    let panel_cell = cell_size/2;
+    
+    let map_height = Math.floor(canvas.height / panel_cell); 
+    let map_width = Math.floor(canvas.width / panel_cell);
 
     // x panel_cell = 50
     // y panel_cell = 50
@@ -273,29 +305,29 @@ export const game = () => {
         map.push(row);
     }
 
-    // const all_ships = document.querySelectorAll(".ship");
+    const all_ships = document.querySelectorAll(".ship");
 
-    // let ship_1 = new ship(all_ships[0], all_ships[0].height, all_ships[0].width, 3, 3, -90, 1, true, "#00f0ff");
-    // let ship_2 = new ship(all_ships[1], all_ships[1].height, all_ships[1].width, 47, 3, 90, 3, true, "#ff0000");
-    // let ship_3 = new ship(all_ships[2], all_ships[2].height, all_ships[2].width, 3, 22, -90, 1, true, "#00ff00");
-    // let ship_4 = new ship(all_ships[3], all_ships[3].height, all_ships[3].width, 47, 22, 90, 3, true, "#ffff00");
+    let ship_1 = new ship(all_ships[0], -90, 1, true, "#00f0ff", 1);
+    let ship_2 = new ship(all_ships[1], 90, 3, true, "#ff0000", 2);
+    let ship_3 = new ship(all_ships[2], -90, 1, true, "#00ff00", 3);
+    let ship_4 = new ship(all_ships[3], 90, 3, true, "#ffff00", 4);
 
+    ship_1.start_ship();
+    ship_2.start_ship();
+    ship_3.start_ship();
+    ship_4.start_ship();
+    
     update_frame();
     setTimeout(() => {
-        // ship_1.start_ship();
-        // ship_2.start_ship();
-        // ship_3.start_ship();
-        // ship_4.start_ship();
-
         const game_flow = setTimeout(() => {
             setInterval(() => {
-                // if (ship_1.status === false && ship_2.status === false && ship_3.status === false && ship_4.status === false) clearInterval(game_flow)
+                if (ship_1.status === false && ship_2.status === false && ship_3.status === false && ship_4.status === false) clearInterval(game_flow)
                 
                 update_frame();
-                // ship_1.move();
-                // ship_2.move();
-                // ship_3.move();
-                // ship_4.move();
+                ship_1.move();
+                ship_2.move();
+                ship_3.move();
+                ship_4.move();
             }, 100);
         }, 800);
     }, 1000);
