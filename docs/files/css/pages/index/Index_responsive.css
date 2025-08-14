@@ -1,7 +1,7 @@
 @media (width < 900px) {
-    body header #desktop_nav{visibility: hidden;}
+    body header #desktop_nav{display: none;}
     body header #icon_menu {
-        visibility: visible;
+        display: flex;
         height: 6vh;
         width: 7vh;
         position: absolute;
@@ -9,17 +9,20 @@
         right: 2vw;
     }
     body header #mobile_nav{
-        visibility: visible;
+        backdrop-filter: blur(7px);
         border-radius: 20px 0px 0px 20px;
         border: 1px solid #00B8FF;
         height: 100vh;
         width: 70vw;
-        backdrop-filter: blur(5px);
+        padding-top: 5vh;
+        padding-right: 5vw;
+        display: none;
         text-align: end;
         font-size: 8vw;
         position: absolute;
-        right: -70vw;
-        transition: right .4s;
+        right: 0vw;
+        opacity: 0;
+        transition: opacity .5s;
     }
     body header #mobile_nav ul{
         height: 70%;
