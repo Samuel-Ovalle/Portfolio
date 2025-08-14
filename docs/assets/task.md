@@ -2,9 +2,12 @@
 - add header to mobile and fix error in this element
 - connect another projects whit my portfolio
 - connect footer text to projects
-- skip initial animation
+- adjust transition video to game
 
 * current task
+- skip initial animation
 
 * task complete
-- fix error in game canvas when start in vertical
+- update the game code to draw the ships in canvas
+- update ship img
+- pre load ships img

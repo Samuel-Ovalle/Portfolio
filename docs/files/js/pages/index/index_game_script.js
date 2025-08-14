@@ -1,16 +1,18 @@
 export const game = () => {
     class ship {
-        constructor(ship, angle, direction, status, color, index) {
-            this.ship = ship;
-            this.angle = angle;
+        constructor(direction, status, color, index) {
+            this.height = cell_size;
+            this.width = cell_size;
             this.direction = direction;
             this.status = status;
             this.color = color;
             this.index = index;
+            
+            this.img_0 = this.define_imgs(get_img(0, this.color))
+            this.img_1 = this.define_imgs(get_img(1, this.color))
+            this.img_2 = this.define_imgs(get_img(2, this.color))
+            this.img_3 = this.define_imgs(get_img(3, this.color))
 
-            this.height = cell_size*1.4;
-            this.ship.style.height = `${this.height}px`;
-            this.width = this.ship.width;
             switch (index) {
                 case 1:
                     this.x = 3;
@@ -43,10 +45,34 @@ export const game = () => {
             this.start_position = [this.x, this.y];
             this.start_node = [];
         }
+        define_imgs(data){
+            // 1. Convert the string into a Blob object of type image/svg+xml
+            let blob = new Blob([data], { type: 'image/svg+xml;charset=utf-8' });
+
+            // 2. Create a URL for that Blob
+            let url = URL.createObjectURL(blob);
+            
+            // 4. Create an image and load it with the SVG URL
+            let img = new Image();
+            img.src = url;
+            return img;
+        }
         start_ship(){
-            this.ship.style.left = `${(this.x*panel_cell)-(this.width/2)}px`
-            this.ship.style.top = `${(this.y*panel_cell)-(this.height/2)}px`
-            setTimeout(() => {this.ship.style.transition = "all .3s ease"}, 1000);
+            // Define data to draw img
+            let height = this.height;
+            let width = this.width;
+            let x = (this.x*panel_cell)-(width/2);
+            let y = (this.y*panel_cell)-(height/2);
+            let img;
+            
+            // Draw img
+            switch (this.direction) {
+                case 0: img = this.img_0; break;
+                case 1: img = this.img_1; break;
+                case 2: img = this.img_2; break;
+                case 3: img = this.img_3; break;
+            }
+            img.onload = function() {ctx.drawImage(img, x, y, height, width);}
         }
         update_movement(){
             this.movement_map = [];
@@ -81,7 +107,6 @@ export const game = () => {
                 movement_counter++
                 if (open_list.length == 0) {
                     this.status = false;
-                    this.ship.remove();
                     break;
                 }
 
@@ -154,7 +179,7 @@ export const game = () => {
                 // ---------- update movement ------
                 if (this.movement_map.length === this.movement_index) this.update_movement();
     
-                // ---------- Draw lines ---------
+                // ---------- Draw lines and ship ---------
     
                 let draw_index = this.movement_history_index;
                 let movements_draw = [];
@@ -196,17 +221,7 @@ export const game = () => {
     
                 if (this.movement_index !== this.movement_map.length) {
                     // ----- rotate -----
-                    if (movements_draw[movements_draw.length-1][1] == 0 && movements_draw.length>1) {   // == 0 or == 1 to adjust
-                        let last_direction = this.direction;
-                        let actual_direction = movements_draw[movements_draw.length-1][0];
-    
-                        let deference = actual_direction-last_direction;
-                        
-                        if (deference === -1 || deference === 3) this.angle = this.angle - 90;
-                        if (deference === 1 || deference === -3) this.angle = this.angle + 90;
-                        this.ship.style.transform = `rotate(${this.angle}deg)`;
-                        this.direction = actual_direction;
-                    }
+                    if (movements_draw[movements_draw.length-1][1] == 0 && movements_draw.length>1) {this.direction = movements_draw[movements_draw.length-1][0];}
     
                     this.movement_index++;
                     this.movement_history_index++;
@@ -214,38 +229,43 @@ export const game = () => {
                     // ----- update map ------
                     map[this.y][this.x] = this.index;
                     
-                    // ----- translate -----
+                    // ----- translate img -----
+
+                    // Define data to draw img
+                    let height = this.height;
+                    let width = this.width;
+                    let x = (this.x*panel_cell)-(width/2);
+                    let y = (this.y*panel_cell)-(height/2);
+                    let img;
+            
                     switch (movements_draw[movements_draw.length-1][0]) {
                         case 0:
                             this.y = this.y - 1;
-                            this.ship.style.top = `${(panel_cell*this.y)-(this.height/2)}px`;
+                            img = this.img_0;
                             break;
                         case 1:
                             this.x = this.x + 1;
-                            this.ship.style.left = `${(panel_cell*this.x)-(this.width/2)}px`;
+                            img = this.img_1;
                             break;
                         case 2:
                             this.y = this.y + 1;
-                            this.ship.style.top = `${(panel_cell*this.y)-(this.height/2)}px`;
+                            img = this.img_2;
                             break;
                         case 3:
                             this.x = this.x - 1;
-                            this.ship.style.left = `${(panel_cell*this.x)-(this.width/2)}px`;
+                            img = this.img_3;
                             break;
                     }
+
+                    // draw img
+                    ctx.drawImage(img, x, y, height, width);
                 }
 
                 // check ship status
                 if (map[this.y][this.x] !== 0) {
                     this.status = false;
-                    setTimeout(() => {this.ship.remove();}, 200);
+                    map.forEach(x =>{x.forEach(y =>{if (y === this.index) y = 0;})})
                 }
-            }
-            else{
-                map.forEach(x =>{x.forEach(y =>{
-                        if (y === this.index) {y = 0;}
-                    })
-                })
             }
         }
     }
@@ -308,30 +328,36 @@ export const game = () => {
         map.push(row);
     }
 
-    const all_ships = document.querySelectorAll(".ship");
+    const get_img = (img, color)=>{
+        switch (img) {
+            case 0: return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 97.21 94.98"><polygon points="48.61 65.87 5.89 88.96 27.25 47.22 48.61 5.49 69.96 47.22 91.32 88.96 48.61 65.87" fill="#000" stroke="${color}" stroke-miterlimit="10" stroke-width="5"/></svg>`;
+            case 1: return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 94.98 97.21"><polygon points="29.11 48.61 6.03 5.89 47.76 27.25 89.5 48.61 47.76 69.96 6.03 91.32 29.11 48.61" fill="#000" stroke="${color}" stroke-miterlimit="10" stroke-width="5"/></svg>`
+            case 2: return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 97.21 94.98"><polygon points="48.61 29.11 91.32 6.03 69.96 47.76 48.61 89.5 27.25 47.76 5.89 6.03 48.61 29.11" fill="#000" stroke="${color}" stroke-miterlimit="10" stroke-width="5"/></svg>`
+            case 3: return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 94.98 97.21"><polygon points="65.87 48.61 88.96 91.32 47.22 69.96 5.49 48.61 47.22 27.25 88.96 5.89 65.87 48.61" fill="#000" stroke="${color}" stroke-miterlimit="10" stroke-width="5"/></svg>`
+        }
+    }
+    
+    update_frame();
 
-    let ship_1 = new ship(all_ships[0], -90, 1, true, "#00f0ff", 1);
-    let ship_2 = new ship(all_ships[1], 90, 3, true, "#ff0000", 2);
-    let ship_3 = new ship(all_ships[2], -90, 1, true, "#00ff00", 3);
-    let ship_4 = new ship(all_ships[3], 90, 3, true, "#ffff00", 4);
+    let ship_1 = new ship(1, true, "#00f0ff", 1);
+    let ship_2 = new ship(3, true, "#ff0000", 2);
+    let ship_3 = new ship(1, true, "#00ff00", 3);
+    let ship_4 = new ship(3, true, "#ffff00", 4);
 
     ship_1.start_ship();
     ship_2.start_ship();
     ship_3.start_ship();
     ship_4.start_ship();
-    
-    update_frame();
-    setTimeout(() => {
-        const game_flow = setTimeout(() => {
-            setInterval(() => {
-                if (ship_1.status === false && ship_2.status === false && ship_3.status === false && ship_4.status === false) clearInterval(game_flow)
-                
-                update_frame();
-                ship_1.move();
-                ship_2.move();
-                ship_3.move();
-                ship_4.move();
-            }, 100);
-        }, 800);
-    }, 1000);
-}
+
+    const game_flow = setTimeout(() => {
+        setInterval(() => {
+            if (ship_1.status === false && ship_2.status === false && ship_3.status === false && ship_4.status === false) clearInterval(game_flow)
+            
+            update_frame();
+            ship_1.move();
+            ship_2.move();
+            ship_3.move();
+            ship_4.move();
+        }, 100);
+    }, 800);
+} 

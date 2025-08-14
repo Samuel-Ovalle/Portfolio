@@ -3,8 +3,8 @@ import {game} from "./index_game_script.js";
 const wait = (t) => new Promise(resolve => setTimeout(resolve, t));
 
 const start_logic = ()=>{
-    game();
     initial_animation.remove();
+    game();
     // document.querySelector("header").style.visibility = "visible";
     document.querySelector("main").style.visibility = "visible";
     // document.querySelector("header").style.opacity = "1";
@@ -64,8 +64,23 @@ const start_logic = ()=>{
 
     setTimeout(() => {
         let texts = ["Samuel Ovalle is", "Full-stack developer"];
-        add_text("my_name", texts)
+        add_text("my_name", texts);
     }, 1500);
+}
+async function read_data() {
+    const cache = await caches.open("cache");
+    const response = await cache.match("/visited_data");
+    if (response) {
+        const data = await response.json();
+        console.log(data);
+        
+        if (data.visited === true) start_logic();
+    } else {
+        const response = new Response(JSON.stringify({ visited: true }), {
+            headers: { "Content-Type": "application/json" }
+        });
+        await cache.put("/visited_data", response);
+    }
 }
 
 const initial_animation = document.getElementById("initial_animation");
@@ -74,6 +89,8 @@ window.addEventListener("load", ()=>{
     initial_animation.scrollIntoView({ behavior: "auto" });
     history.scrollRestoration = "manual";
 })
+
+read_data();
 
 initial_animation.addEventListener("ended", ()=>{start_logic()});
 initial_animation.addEventListener("click", ()=>{start_logic()});

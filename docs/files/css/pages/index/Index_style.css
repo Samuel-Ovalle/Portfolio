@@ -68,28 +68,6 @@ body main #presentation .back_ground_game{
     height: 100%;
     width: 100%;
 }
-body main #presentation .ship{
-    height: 8vh;
-    position: absolute;
-    object-fit: scale-down;
-    transition: none;
-}
-body main #presentation #ship_1{
-    filter: drop-shadow(0vh 0vh 7px #00f);
-    transform: rotate(-90deg);
-}
-body main #presentation #ship_2{
-    filter: drop-shadow(0vh 0vh 7px #f00);
-    transform: rotate(90deg);
-}
-body main #presentation #ship_3{
-    filter: drop-shadow(0vh 0vh 7px #0f0);
-    transform: rotate(-90deg);
-}
-body main #presentation #ship_4{
-    filter: drop-shadow(0vh 0vh 7px #ff0);
-    transform: rotate(90deg);
-}
 
 body main #presentation .content_my_name{
     border-radius: 20px;
