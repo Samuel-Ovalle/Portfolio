@@ -22,7 +22,7 @@
         position: absolute;
         right: 0vw;
         opacity: 0;
-        transition: opacity .5s;
+        transition: opacity .3s;
     }
     body header #mobile_nav ul{
         height: 70%;

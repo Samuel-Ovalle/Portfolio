@@ -23,7 +23,7 @@ const start_logic = ()=>{
         element.addEventListener("click", ()=>{
             if (menu_status === true) {
                 menu.style.opacity = "0";
-                setTimeout(()=>{menu.style.display = "none"}, 500)
+                setTimeout(()=>{menu.style.display = "none"}, 300)
                 menu_status = false;
             }
         })
@@ -32,7 +32,7 @@ const start_logic = ()=>{
     document.querySelector("main").addEventListener("click", ()=>{
         if (menu_status === true) {
             menu.style.opacity = "0";
-            setTimeout(()=>{menu.style.display = "none"}, 500)
+            setTimeout(()=>{menu.style.display = "none"}, 300)
             menu_status = false;
         }
     });

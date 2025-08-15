@@ -5,5 +5,5 @@
 * current task
 
 * task complete
-- add header to mobile and fix error in this element
-- adjust transition video to game
+- adjust text in button to download
+- edit cv
