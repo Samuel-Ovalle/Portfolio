@@ -257,14 +257,15 @@ body footer #contact #links a{
 }
 body footer #contact #links a img{
     height: 100%;
+    max-width: 30vw;
     width: min-content;
     display: inline-block;
 }
-body footer #contact .btn-cv{
+body footer #contact #cv{
     border: none;
     border-radius: 20px;
     background: var(--text-color-1);
-    color: #F2F2F2;
+    color: #F2F2F2 !important;
     height: 6vh;
     width: 50%;
     padding: 0;
@@ -274,8 +275,8 @@ body footer #contact .btn-cv{
     align-items: center;
     transition: transform .3s;
 }
-body footer #contact .btn-cv:hover{
-    color: #F2F2F2;
+body footer #contact #cv:hover{
+    color: #F2F2F2 !important;
     transform: scale(1.1);
 }
 body footer #technologies_list{

@@ -5,5 +5,5 @@
 * current task
 
 * task complete
-- adjust text in button to download
-- edit cv
+- adjust img links size
+- adjust cv button color text
