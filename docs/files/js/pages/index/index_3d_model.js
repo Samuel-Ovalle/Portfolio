@@ -96,8 +96,8 @@ function add_3d_model(container, imgs) {
     let model;
     const loader = new GLTFLoader();
     loader.load(
-        '/Portfolio/assets/model/platforms.gltf',
-        // '/docs/assets/model/platforms.gltf',
+        // '/Portfolio/assets/model/platforms.gltf',
+        '/docs/assets/model/platforms.gltf',
         (gltf) => {
             model = gltf.scene;
             scene.add(model);
@@ -117,7 +117,7 @@ function add_3d_model(container, imgs) {
     
         if (model) {
             if (end_angle != actual_angle) {
-                actual_angle = (end_angle > actual_angle) ? actual_angle += 66 : actual_angle -= 66;
+                actual_angle = (end_angle > actual_angle) ? actual_angle += 88 : actual_angle -= 88;
                 document.querySelector(`#${container} .card`).style.opacity = "0";
             }
             else document.querySelector(`#${container} .card`).style.opacity = "1";
@@ -152,7 +152,8 @@ function add_3d_model(container, imgs) {
         setTimeout(() => {
             if (container === "technologies") {
                 document.querySelector(`#${container} .card`).textContent = imgs[img_index][0]
-                document.querySelector(`#${container} .card`).insertAdjacentHTML("beforeend", `<img src="${imgs[img_index][1]}" alt=""> <p>${imgs[img_index][2]} years of experience</p>`)
+                let text = (imgs[img_index][2] === 1) ? `${imgs[img_index][2]} year` : `${imgs[img_index][2]} years`;
+                document.querySelector(`#${container} .card`).insertAdjacentHTML("beforeend", `<img src="${imgs[img_index][1]}" alt=""> <p>${text} of experience</p>`)
             }else if (container === "projects"){
                 document.querySelector(`#${container} .card`).textContent = imgs[img_index][0]
                 document.querySelector(`#${container} .card`).insertAdjacentHTML("beforeend", `<img src="${imgs[img_index][1]}" alt=""> <a href="">Explore</a>`)
