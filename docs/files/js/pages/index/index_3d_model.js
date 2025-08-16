@@ -137,7 +137,8 @@ function add_3d_model(container, imgs) {
         setTimeout(() => {
             if (container === "technologies") {
                 document.querySelector(`#${container} .card`).textContent = imgs[img_index][0]
-                document.querySelector(`#${container} .card`).insertAdjacentHTML("beforeend", `<img src="${imgs[img_index][1]}" alt=""> <p>${imgs[img_index][2]} years of experience</p>`)
+                let text = (imgs[img_index][2] === 1) ? `${imgs[img_index][2]} year` : `${imgs[img_index][2]} years`;
+                document.querySelector(`#${container} .card`).insertAdjacentHTML("beforeend", `<img src="${imgs[img_index][1]}" alt=""> <p>${text} of experience</p>`)
             }else if (container === "projects"){
                 document.querySelector(`#${container} .card`).textContent = imgs[img_index][0]
                 document.querySelector(`#${container} .card`).insertAdjacentHTML("beforeend", `<img src="${imgs[img_index][1]}" alt=""> <a href="">Explore</a>`)

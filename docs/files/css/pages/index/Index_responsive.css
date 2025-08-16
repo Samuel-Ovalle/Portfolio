@@ -76,8 +76,8 @@
     body footer #contact #links{
         width: 100%;
     }
-    body footer #contact .btn-cv{
-        margin-left: 0;
+    body footer #contact #cv{
+        width: 100%;
     }
     body footer #technologies_list{
         width: 95%;

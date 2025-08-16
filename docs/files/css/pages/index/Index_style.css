@@ -272,7 +272,7 @@ body footer #contact #cv #cv_text{
     border: none;
     border-radius: 20px;
     background: var(--text-color-1);
-    color: #F2F2F2 !important;
+    color: #F2F2F2;
     height: 6vh;
     width: 50%;
     display: flex;
@@ -281,7 +281,7 @@ body footer #contact #cv #cv_text{
     transition: transform .3s;
 }
 body footer #contact #cv #cv_text:hover{
-    color: #F2F2F2 !important;
+    color: #F2F2F2;
     transform: scale(1.1);
 }
 body footer #technologies_list{

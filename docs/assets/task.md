@@ -5,5 +5,5 @@
 * current task
 
 * task complete
-- adjust img links size
-- adjust cv button color text
+- adjust text in carts when the experience is 1 year
+- fix bug to translate all text in portfolio, and bug in color tex in cv button
