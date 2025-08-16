@@ -240,42 +240,47 @@ body footer #contact a{
 body footer #contact a:hover{color: #66E0FF;}
 body footer #contact #links{
     border-top: 2px solid #00B8FF;
-    height: 20%;
+    height: 7vh;
     width: 80%;
     padding-top: 1%;
     margin-top: 4%;
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
 }
 body footer #contact #links a{
     border: none;
-    height: 7vh;
-    width: fit-content;
+    height: 100%;
+    width: 100%;
     padding: 0;
     margin: 0;
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 body footer #contact #links a img{
-    height: 100%;
-    max-width: 30vw;
-    width: min-content;
+    height: 7vh;
+    object-fit: contain;
     display: inline-block;
 }
 body footer #contact #cv{
+    height: 100%;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+}
+body footer #contact #cv #cv_text{
     border: none;
     border-radius: 20px;
     background: var(--text-color-1);
     color: #F2F2F2 !important;
     height: 6vh;
     width: 50%;
-    padding: 0;
-    margin-left: 12.5%;
     display: flex;
     justify-content: center;
     align-items: center;
     transition: transform .3s;
 }
-body footer #contact #cv:hover{
+body footer #contact #cv #cv_text:hover{
     color: #F2F2F2 !important;
     transform: scale(1.1);
 }
