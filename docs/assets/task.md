@@ -3,6 +3,6 @@
 - connect footer text to projects
 
 * current task
+- add projects to portfolio
 
 * task complete
-- change url to model 3d
