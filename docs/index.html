@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="files/index/css/Global_style.css">
+    <link rel="stylesheet" href="files/index/css/Index_style.css">
+    <link rel="stylesheet" href="files/index/css/Index_responsive.css">
+    <title>Samuel Ovalle</title>
+
+    <!-- Fuente Audiowide usada bajo SIL Open Font License v1.1 -->
+    <!-- Copyright (c) 2012, Brian J. Bonislawsky DBA Astigmatic (AOETI) -->
+    <!-- https://openfontlicense.org -->
+    <!-- La fuente puede ser usada, modificada y distribuida libremente siempre que no se venda por sí sola y se mantenga esta licencia. -->
+
+    <!-- Three.js -->
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@v0.178.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.178.0/examples/jsm/"
+        }
+    }
+    </script>
+</head>
+<body>
+    <video id="initial_animation" autoplay muted playsinline>
+        <source src="assets/vid/animacion_inicial_portafoleo.mp4" type="">
+    </video>
+    <header>
+        <nav id="desktop_nav">
+            <ul>
+                <li><a href="#presentation">Home</a></li>
+                <li><a href="#technologies">Technologies</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <svg id="icon_menu" role="img" aria-label="menu icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"viewBox="0 0 48.07 45.61" style="enable-background:new 0 0 48.07 45.61;" xml:space="preserve">
+            <style type="text/css">
+                .st2{fill:none;stroke: var(--text-color-1);stroke-width:7;stroke-linecap:round;stroke-miterlimit:10;}
+            </style>
+            <line class="st2 line1" x1="3.86" y1="41.99" x2="44.15" y2="41.99"/>
+            <line class="st2 line2" x1="3.86" y1="22.85" x2="44.15" y2="22.85"/>
+            <line class="st2 line3" x1="3.86" y1="3.7" x2="44.15" y2="3.7"/>
+        </svg>
+        <nav id="mobile_nav">
+            MENU
+            <ul>
+                <li><a href="#presentation">Home</a></li>
+                <li><a href="#technologies">Technologies</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+    </header>
+    <main>
+        <section id="presentation">
+            <canvas class="back_ground_game" id="back_game"></canvas>
+            <div class="content_my_name">
+                <h1 id="my_name"></h1>
+                <span class="cursor"></span>
+            </div>
+        </section>
+
+        <div class="blurring_effect_separation"></div>
+
+        <section id="navigation_tree">
+            <div id="technologies" class="scene"></div>
+            <div class="blurring_effect_separation"></div>
+            <div id="projects" class="scene"></div>
+        </section>
+    </main>
+
+    <footer>
+        <div id="contact">
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=sfovallerodriguez@gmail.com" target="_blank" rel="noopener noreferrer">Email: sfovallerodriguez@gmail.com</a>
+            <a href="https://wa.me/573245837067" target="_blank" rel="noopener noreferrer">Number: +57 324 583 7067</a>
+            <div id="links">
+                <a href="https://github.com/Samuel-Ovalle" target="_blank" rel="noopener noreferrer">
+                    <img src="assets/img/icons/Github.png" alt="GitHub Profile">
+                </a>
+                <a href="https://platzi.com/p/sfovallerodriguez/" target="_blank" rel="noopener noreferrer">
+                    <img src="assets/img/icons/platzi_icon.png" alt="Platzi Profile">
+                </a>
+                <a href="https://www.linkedin.com/in/samuel-felipe-ovalle-roriguez-9a07bb360/" target="_blank" rel="noopener noreferrer">
+                    <img src="assets/img/icons/linkedin_icon.png" alt="LinkedIn Profile">
+                </a>
+            </div>
+            <a href="assets/files_to_download/H.V._Samuel_O.pdf" download id="cv"><button id="cv_text">Download CV</button></a>
+        </div>
+        <ul id="technologies_list">
+            <li>Design and Editing
+                <ul>
+                    <li>Adobe Illustrator</li>
+                    <li>Adobe Photoshop</li>
+                    <li>Adobe Premiere Pro</li>
+                    <li>Blender</li>
+                </ul>
+            </li>
+            <li>Web Development
+                <ul>
+                    <li>HTML5</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                    <li>PHP</li>
+                    <li>React.js</li>
+                </ul>
+            </li>
+            <li>Programming
+                <ul>
+                    <li>Python</li>
+                    <li>C++</li>
+                </ul>
+            </li>
+            <li>Database
+                <ul>
+                    <li>MySQL / SQLite</li>
+                </ul>
+            </li>
+            <li>Version Control
+                <ul>
+                    <li>Git</li>
+                    <li>GitHub</li>
+                </ul>
+            </li>
+        </ul>
+    </footer>
+
+    <script type="module" src="files/index/js/Index_3d_model.js"></script>
+    <script type="module" src="files/index/js/Index_game_script.js"></script>
+    <script type="module" src="files/index/js/Index_script.js"></script>
+</body>
+</html>
