@@ -172,17 +172,20 @@ const technologies = [
     ["JavaScript", "assets/img/icons/JavaScript.png", 4], 
     ["TypeScript", "assets/img/icons/TypeScript.png", 2],
     ["PHP", "assets/img/icons/PHP.png", 3], 
-    ["React", "assets/img/icons/React.png", 1], 
     ["Python", "assets/img/icons/Python.png", 1], 
-    ["C++", "assets/img/icons/C++.png", 1], 
-    ["MySQL", "assets/img/icons/MySQL.png", 2], 
-    ["SQLite", "assets/img/icons/SQLite.png", 2], 
+    ["C++", "assets/img/icons/C++.png", 1],
+    ["React.js", "assets/img/icons/React.png", 1],
+    ["Vue.js", "assets/img/icons/Vue.png", 1],
+    ["Laravel", "assets/img/icons/Laravel.png", 1],
+    ["WordPress", "assets/img/icons/Wordpress.png", 1],
     ["Git", "assets/img/icons/Git.png", 2], 
     ["Github", "assets/img/icons/Github.png", 2], 
-    ["Blender", "assets/img/icons/Blender.png", 2], 
+    ["MySQL", "assets/img/icons/MySQL.png", 2], 
+    ["SQLite", "assets/img/icons/SQLite.png", 2], 
     ["Adobe Illustrator", "assets/img/icons/Adobe_Illustrator.png", 5], 
     ["Adobe Photoshop", "assets/img/icons/Adobe_Photoshop.png", 1], 
-    ["Adobe Premiere Pro", "assets/img/icons/Adobe_Premiere_Pro.png", 2]
+    ["Adobe Premiere Pro", "assets/img/icons/Adobe_Premiere_Pro.png", 2],
+    ["Blender", "assets/img/icons/Blender.png", 2], 
 ]
 technologies.forEach(element =>{
     element.forEach((data, index)=>{
