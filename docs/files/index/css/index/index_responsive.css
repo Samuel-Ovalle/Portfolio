@@ -41,7 +41,7 @@
 
   body main #firstScene{
     height: 195vh;
-    width: 80%;
+    width: 100%;
     
     & #firstModel{
       height: 90vh;
