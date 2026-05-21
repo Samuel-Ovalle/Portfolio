@@ -1,0 +1,29 @@
+{
+    "stacks":[
+        [
+            {"name": "HTML", "icon": "https://res.cloudinary.com/dvqteoxap/image/upload/v1779317140/HTML5_adovoo.png", "progress": 95},
+            {"name": "CSS", "icon": "https://res.cloudinary.com/dvqteoxap/image/upload/v1779317140/CSS3_o0ia2l.png", "progress": 95},
+            {"name": "JavaScript", "icon": "https://res.cloudinary.com/dvqteoxap/image/upload/v1779317141/JavaScript_rsfq0o.png", "progress": 90},
+            {"name": "TypeScript", "icon": "https://res.cloudinary.com/dvqteoxap/image/upload/v1779317141/TypeScript_qwch97.png", "progress": 80},
+            {"name": "WordPress", "icon": "https://res.cloudinary.com/dvqteoxap/image/upload/v1779317142/WordPress_zicxpt.png", "progress": 70},
+            {"name": "React", "icon": "https://res.cloudinary.com/dvqteoxap/image/upload/v1779317141/React_ewg9oj.png", "progress": 75},
+            {"name": "Vue", "icon": "https://res.cloudinary.com/dvqteoxap/image/upload/v1779317141/Vue_hdfrta.png", "progress": 75}
+        ],
+        [
+            {"name": "Python", "icon": "https://res.cloudinary.com/dvqteoxap/image/upload/v1779317139/Python_igmbir.png", "progress": 50},
+            {"name": "PHP", "icon": "https://res.cloudinary.com/dvqteoxap/image/upload/v1779317139/PHP_j3hwnn.png", "progress": 70},
+            {"name": "Laravel", "icon": "https://res.cloudinary.com/dvqteoxap/image/upload/v1779317138/Laravel_lbsklx.png", "progress": 65},
+            {"name": "C++", "icon": "https://res.cloudinary.com/dvqteoxap/image/upload/v1779317138/C_fabsuq.png", "progress": 30},
+            {"name": "MySQL", "icon": "https://res.cloudinary.com/dvqteoxap/image/upload/v1779317139/MySQL_p9ojiy.png", "progress": 60},
+            {"name": "SQLite", "icon": "https://res.cloudinary.com/dvqteoxap/image/upload/v1779317139/SQLite_vfvfgr.png", "progress": 60}
+        ],
+        [
+            {"name": "Git", "icon": "https://res.cloudinary.com/dvqteoxap/image/upload/v1779317145/Git_cmga7f.png", "progress": 95},
+            {"name": "GitHub", "icon": "https://res.cloudinary.com/dvqteoxap/image/upload/v1779317146/GitHub_kjhic6.png", "progress": 95},
+            {"name": "Photoshop", "icon": "https://res.cloudinary.com/dvqteoxap/image/upload/v1779317146/Photoshop_m1yhco.png", "progress": 80},
+            {"name": "Illustrator", "icon": "https://res.cloudinary.com/dvqteoxap/image/upload/v1779317146/Illustrator_argjud.png", "progress": 80},
+            {"name": "Premiere", "icon": "https://res.cloudinary.com/dvqteoxap/image/upload/v1779317147/Premiere_xmll8m.png", "progress": 80},
+            {"name": "Blender", "icon": "https://res.cloudinary.com/dvqteoxap/image/upload/v1779317145/Blender_kf0w27.png", "progress": 70}
+        ]
+    ]
+}

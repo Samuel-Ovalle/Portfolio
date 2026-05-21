@@ -1,0 +1,204 @@
+@media screen and (max-aspect-ratio: 1/1) {
+  body header{
+    padding: 0%;
+
+    & img{
+      height: 2.5vh;
+      display: inline;
+      position: absolute;
+      top: 2vh;
+
+      transform: rotate(45deg);
+      transition: transform 0.3s ease;
+    }
+  }
+  body header nav{
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+
+    height: 32vh;
+    width: 100%;
+    padding-top: 4vh;
+
+    position: relative;
+    bottom: 32vh;
+
+    transition: bottom 0.3s ease;
+  }
+  body header nav ul{
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  body header nav ul li{
+    border-bottom: solid 1px var(--border-color-2);
+    
+    width: 70%;
+    padding-bottom: 1vh;
+
+    text-align: center;
+  }
+
+  body main #firstScene{
+    width: 100%;
+    left: 0vw;
+  }
+  body main #hero #decorationHero{
+    height: 15vh;
+  }
+  body main #hero #infoContent #devName{
+
+    & span{
+      position: relative;
+      bottom: 20vh;
+    }
+    & span:first-child{
+      font-size: 10vh;
+    }
+    & span:last-child{
+      font-size: 7vh;
+    }
+  }
+  body main #hero #infoContent #devInfo{
+    margin-left: 2vh;
+
+    height: 25vh;
+    width: 20vw;
+  }
+  body main #hero #infoContent #devDescription{
+    margin-right: 2vh;
+
+    height: 25vh;
+    width: 50vw;
+
+    line-height: 1.5vh;
+    font-size: 1.5vh;
+  }
+
+  body main #stackTec{
+    justify-content: center;
+  }
+  body main #stackTec #stackContent{
+    width: 80vw;
+  }
+  body main #stackTec #stackContent .stackContainer{
+    width: 100%;
+    padding: 4% 2% 2% 2%;
+
+    & h4{
+      font-size: 2.5vh;
+    }
+    & .techContainer{
+      height: 7vh;
+    }
+  }
+  body main #stackTec #stackContent .stackContainer .techContainer .track .tech img{
+    height: 4vh;
+  }
+  body main #stackTec #stackContent .stackContainer .techContainer .track .tech span{
+    font-size: 2vh;
+  }
+
+  body main #projects #projectsImage{
+    width: 100vw;
+  }
+  body main #projects #projectsContent{
+    width: 90vw;
+  }
+  body main #projects #projectsContent #projectsList{
+    width: 40vw;
+
+    & .project{
+      height: 20vh;
+      padding-top: 2vh;
+
+      & span{
+        font-size: 2.5vh;
+      }
+    }
+  }
+  body main #projects #projectsContent #projectsDecoration{
+    width: 5vw;
+    padding-top: 8vh;
+    gap: 1vh;
+
+    & .projectDecoration1{
+      height: 4vh;
+    }
+    & .projectDecoration2{
+      height: 17vh;
+    }
+  }
+  body main #projects #projectsContent #projectsDescription{
+    width: 50vw;
+
+    & .projectDescription{
+      height: 20vh;
+      width: 100%;
+      padding: 10%;
+
+      & p{
+        font-size: 1.7vh;
+        line-height: 1.7vh;
+      }
+    }
+  }
+
+  body footer{
+    height: 100vh;
+    padding: 5vh 0 5vh 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+  }
+  body footer #decorationContact{
+    height: 100%;
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 75% 20%;
+    place-items: center;
+
+    position: absolute;
+    z-index: 400;
+
+    & img{
+      height: fit-content;
+      width: 100vw;
+      margin-bottom: 6vh;
+    }
+    & #linksContact{
+      height: 100%;
+      width: 90%;
+    }
+  }
+  body footer #decorationContact #linksContact a{
+    font-size: 1.7vh;
+    gap: 1vh;
+
+    & img{
+      height: 50%;
+      width: fit-content;
+      margin: 0%;
+    }
+  }
+  body footer #decorationContact #linksContact a:last-child button{
+    font-size: 2vh;
+  }
+  body footer #contactGmail{
+    height: 80%;
+    width: 80%;
+    z-index: 450;
+
+    & h3{
+      font-size: 4vh;
+    }
+  }
+  body footer #contactGmail form #formButtons a{
+    font-size: 2vh;
+  }
+
+}

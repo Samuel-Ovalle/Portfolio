@@ -1,0 +1,22 @@
+{
+    "projects": [
+        {
+            "name": "Ships Game",
+            "img": "https://res.cloudinary.com/dvqteoxap/image/upload/v1779317143/Ships_Game_dxd8i6.png",
+            "link": "",
+            "description": "Video game project where an AI-driven algorithm controls and manages the movement of spacecraft across a dynamic map environment."
+        },
+        {
+            "name": "Movi-Grip",
+            "img": "https://res.cloudinary.com/dvqteoxap/image/upload/v1779317143/Movi-Grip_ipxbvc.png",
+            "link": "",
+            "description": "3D robot project controlled from a computer using Python Software Foundation Python for movement control, interaction, and system communication."
+        },
+        {
+            "name": "web-designs",
+            "img": "https://res.cloudinary.com/dvqteoxap/image/upload/v1779317144/Web_Designs_ospqjh.png",
+            "link": "",
+            "description": "Collection of web design projects showcasing creativity and technical skills in user interface and user experience design."
+        }
+    ]
+}

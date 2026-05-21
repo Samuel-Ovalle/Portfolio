@@ -1,0 +1,65 @@
+:root{
+    --background-color-1: #030303;
+    --background-color-2: #16161688;
+    --background-color-3: #262626;
+    --background-color-4: #fcdb43;
+    --background-color-5: #B38C4D;
+
+    --text-color-1: #F2F2F2;
+    --text-color-2: #D9D9D6;
+    --text-color-3: #fcdb43;
+    --text-color-4: #100C0D;
+
+    --border-color-1: #fcdb43;
+    --border-color-2: #D9D9D6;
+    --border-color-3: #969FA6;
+
+    --border-radius: 20px;
+}
+
+@font-face {
+  font-family: 'Exo 2';
+  src: url('../../../../assets/fonts/Exo_2/Exo2-VariableFont_wght.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-stretch: 50% 125%;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Cinzel';
+  src: url('../../../../assets/fonts/Cinzel/Cinzel-VariableFont_wght.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-stretch: 50% 125%;
+  font-display: swap;
+}
+
+
+*{
+    font-family: "Exo 2", "Audiowide-Regular";
+    font-weight: 400;
+    font-stretch: 100%;
+    padding: 0%;
+    margin: 0%;
+    color: var(--text-color-1);
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    line-height: .9;
+}
+
+body{
+    background: var(--background-color-1);
+    height: fit-content;
+    width: 100vw;
+    overflow-x: hidden;
+}
+body main{
+    display: block;
+    height: fit-content;
+    width: 100vw;
+    position: relative;
+    top: -10vh;
+}
+section{
+    height: 100vh;
+    width: 100vw;
+}
