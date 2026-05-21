@@ -1,16 +1,14 @@
 * task to finished
 - connect another projects whit my portfolio
+- update the contact links
+- adjust the hero hight in movile
+- adjust transparent color
 
 * current task
 - add projects to portfolio
 
 * task complete
-- change snake-case to camel-case
-- change portfolio style
-- change font
-- add decode text efect
-- save stack data in json file
-- conect json stack whit index_stack_dev
-- add stack parts to web
-- add animation to stacks
-- add main an animation
+- adjust main name
+- fix traduccion error
+- fix movile menu funtion
+- adjust apollo animation sice

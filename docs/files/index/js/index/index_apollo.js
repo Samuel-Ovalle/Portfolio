@@ -86,7 +86,7 @@ function getScrollFrame() {
  */
 function updateWrapperSlide(isResponsive) {
     if (isResponsive) {
-        sceneWrapper.style.left = `0%`;
+        sceneWrapper.style.left = `10%`;
     }else {
         const easedProgress = clamp(scrollProgress * SLIDE.speed, 0, 1);
         sceneWrapper.style.left = `${SLIDE.startLeft + (SLIDE.endLeft - SLIDE.startLeft) * easedProgress}%`;

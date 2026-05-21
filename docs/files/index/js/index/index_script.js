@@ -58,14 +58,16 @@ function toggleNav(open) {
 /** Opens/closes the nav on hamburger button click. */
 mobileNavBtn.addEventListener('click', () => {
     isNavOpen = !isNavOpen;
-    toggleNav(isNavOpen);
+    toggleNav(isNavOpen);    
 });
 
 /** Closes the nav when any nav link is clicked. */
-document.querySelectorAll('header nav ul li a').forEach(link =>
+document.querySelectorAll('.navOption').forEach(link =>
     link.addEventListener('click', () => {
         isNavOpen = false;
-        toggleNav(false);
+        toggleNav(true);
+        console.log("funciona");
+        
     })
 );
 

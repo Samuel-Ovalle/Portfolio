@@ -40,18 +40,18 @@
   }
 
   body main #firstScene{
-    width: 100%;
-    left: 0vw;
+    height: 195vh;
+    width: 80%;
+    
+    & #firstModel{
+      height: 90vh;
+      top: 10vh;
+    }
   }
   body main #hero #decorationHero{
     height: 15vh;
   }
   body main #hero #infoContent #devName{
-
-    & span{
-      position: relative;
-      bottom: 20vh;
-    }
     & span:first-child{
       font-size: 10vh;
     }
